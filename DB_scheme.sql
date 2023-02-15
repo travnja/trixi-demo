@@ -1,0 +1,18 @@
+DROP TABLE IF EXISTS city, citypar;
+DROP SEQUENCE IF EXISTS cityId, cityPartId;
+
+CREATE SEQUENCE cityId;
+CREATE SEQUENCE cityPartId;
+
+CREATE TABLE city(
+	id BIGINT PRIMARY KEY DEFAULT nextval('cityId'),
+	name VARCHAR(50) NOT NULL,
+	code VARCHAR(10) NOT NULL
+);
+
+CREATE TABLE cityPart(
+	id BIGINT PRIMARY KEY DEFAULT nextval('cityPartId'),
+	name VARCHAR(50) NOT NULL,
+	code VARCHAR(10) NOT NULL,
+	belongsTo VARCHAR(10) NOT NULL
+);
